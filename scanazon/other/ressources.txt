@@ -1,0 +1,4 @@
+https://www.geeksforgeeks.org/how-to-read-dictionary-from-file-in-python/
+https://www.geeksforgeeks.org/print-lists-in-python-4-different-ways/
+https://stackoverflow.com/questions/10125568/how-to-randomly-choose-multiple-keys-and-its-value-in-a-dictionary-python
+

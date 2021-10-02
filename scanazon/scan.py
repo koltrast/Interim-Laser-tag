@@ -1,17 +1,30 @@
-"""dictionnary https://www.geeksforgeeks.org/how-to-read-dictionary-from-file-in-python/"""
+# ----- PROCESS -----
+# read the dictionnary and create an random list
+# print the random list
+# wait for start then launch timer
+# scan process + wait for end signal
+# stop the timer
+# add penalties
+# print results then start back
 
+# ===================
+
+
+# importing the modules
 import time
 import random
 
-a = 1
+# definition
 x = random.randint(12,16)
-
 def list_barcode():
-    original_list = (open("serials.txt","r").readlines())
+    original_list = (open("list.txt","r").readlines())
     sample_list = random.choices(original_list, k=x)
-    print(f"There is {x} barcodes to scan. Here they are {sample_list}")
- 
+    print(f"There is {x} barcodes to scan. Here they are : \n")
+    print(*sample_list, sep = "\n")
 
+a = 1
+ 
+# exec
 list_barcode()
 while a == 1:
     print("Scan the start barcode")
