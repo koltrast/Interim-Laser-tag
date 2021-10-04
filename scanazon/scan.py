@@ -1,5 +1,5 @@
 # ----- PROCESS -----
-# read the dictionnary and create an random list
+# read the dictionnary and create an random list ttttt ttttttttttttttttttttttt
 # print the random list
 # wait for start then launch timer
 # scan process + wait for end signal

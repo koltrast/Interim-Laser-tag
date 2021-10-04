@@ -1,9 +1,10 @@
 import random
 randomlist = []
-for i in range(676): 
+for i in range(50): 
     n = random.randint(3560238704691,4033657720409)
     randomlist.append(n)
-print(randomlist)
-f=open("serials-A01-Z26.txt","w")
+randomlist.sort()
+print(*randomlist, sep = "\n")
+f=open("serials.txt","w")
 f.write(f"{randomlist}")
  
