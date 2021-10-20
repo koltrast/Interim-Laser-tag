@@ -1,6 +1,10 @@
 #coding:utf8
 
-dico = {
+# importing the modules
+import random
+
+# dictionnary
+d = {
     "A01":3583866774660,
     "A02":3584487784609,
     "A03":3587333182980,
@@ -90,7 +94,34 @@ dico = {
     "W03":3986847480145,
     "W04":3987910616051,
     "X01":3989893160328,
-    "X02":3990215108614,
+    "X02":3990215108614
 }
 
-print(dico["G01"])
+
+# variable
+key_list = list(d.keys())
+val_list = list(d.values())
+
+
+# function
+def sample_key():
+    n = random.randint(12,16)
+    global sample_list
+    sample_list = random.choices(key_list, k=n)
+    print(f"There is {n} items to prepare. Here they are : \n")
+    print(*sample_list, sep = "\n")
+
+
+# exec
+sample_key()
+
+# temporary values for testing purpose
+scn = 3609214749965
+position = val_list.index(scn)
+scn_code = key_list[position]
+
+if scn_code not in sample_list:
+    print(scn_code, "is not in the list")
+else:
+    print("scan the next item")
+ 
