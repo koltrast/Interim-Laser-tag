@@ -9,8 +9,9 @@ import random
 import time
 
 # global variables
-n = random.randint(12,16)
+n = random.randint(2,3)
 a = 1
+p = 0
 
 
 # functions
@@ -19,6 +20,12 @@ def sample_key():
     sample_list = random.choices(orig_list, k=n)
     print(f"There is {n} items to prepare. Here they are : \n")
     print(*sample_list, sep = "\n")
+
+def penalities():
+    global p
+    p = p + 10
+    print(p, " seconds of penalities !")
+
 
 # exec
 sample_key()
@@ -35,13 +42,17 @@ while a == 1:
                 sample_list.remove(scan)
                 i = i + 1
             else:
+                penalities()
                 print("You dumb idiot")
         while a ==1:
             print("Scan the stop bar code")
             if input() == "STOP":
                 t1 = time.time()
                 total = t1-t0
+                totalp = total + p
                 print("Your time is ", total)
+                print("Your penalties are ", p)
+                print("Your final time is", totalp)
                 a = a - 1
             else:
                 a = 1
