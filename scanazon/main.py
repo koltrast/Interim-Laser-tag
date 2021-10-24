@@ -33,7 +33,6 @@ while a == 1:
     if input() == "START":
         t0 = time.time()
         i = 0
-        b = 1
         while i < n :
             print(str(n - i) + " to scan")
             scan = input()
@@ -60,4 +59,3 @@ while a == 1:
                 a = 1
     else:
         a = 1
-        b = 1
