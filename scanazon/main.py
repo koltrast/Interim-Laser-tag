@@ -25,6 +25,10 @@ def penalities():
     p = p + 10
     print(p, " seconds of penalities !")
 
+def send_to_printer():
+    import os
+    os.system("lpr -P printer_name printMe.txt")
+
 
 # exec
 sample_key()
