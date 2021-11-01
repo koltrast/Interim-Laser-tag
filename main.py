@@ -10,6 +10,7 @@ import time
 # global variables
 n = random.randint(2,3)
 a = 1
+b = 1
 p = 0
 
 
@@ -19,26 +20,33 @@ def sample_key():
     sample_list = random.choices(orig_list, k=n)
     print(f"There are {n} items to prepare. Here they are : \n")
     print(*sample_list, sep = "\n")
-    with open('readme.txt', 'w', encoding='utf-8') as f:
-        f.write(f"There are {n} items to prepare. \nHere they are : \n \n")
+    
+def sample_list_to_txt():
+    with open("sample_list.txt", "w", encoding="utf-8") as f:
+        f.write(f"There are {n} items to prepare.\nHere they are:\n\n")
         for items in sample_list:
             f.writelines(items+ "\n")
+        f.write("\nScan the start barcode!\n\nWhen you have finished don’t\nforget to scan the stop barcode!")
+
+def sample_list_to_printer():
+    import os
+    os.system("lpr -P printer_name sample_list.txt")
 
 def penalities():
     global p
     p = p + 10
     print(p, " seconds of penalities !")
 
-def send_to_printer():
-    import os
-    os.system("lpr -P printer_name printMe.txt")
-
-
+def score_to_txt():
+    with open("score.txt", "w", encoding="utf-8") as g:
+        g.write(f"Your time is {total} seconds\n\n")
+        g.write(f"You had {p/10} penalities,\ntotaling {p} seconds\n\n")
+        g.write(f"So your final time is {totalp}")
 
 
 # exec
-
 sample_key()
+sample_list_to_txt()
 while a == 1:
     print("Scan the start barcode")
     if input() == "START":
@@ -65,6 +73,7 @@ while a == 1:
                 print("Your time is ", total)
                 print("Your penalties are ", p)
                 print("Your final time is", totalp)
+                score_to_txt()
                 a = a - 1
             else:
                 a = 1
