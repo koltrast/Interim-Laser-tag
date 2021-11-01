@@ -6,13 +6,12 @@ orig_list = ["A01", "A02", "A03", "A04", "B01", "B02", "B03", "B04", "C01", "C02
 # importing the modules
 import random
 import time
+import decimal
 
 # global variables
 n = random.randint(2,3)
 a = 1
-b = 1
 p = 0
-
 
 # functions
 def sample_key():
@@ -22,7 +21,7 @@ def sample_key():
     print(*sample_list, sep = "\n")
     
 def sample_list_to_txt():
-    with open("sample_list.txt", "w", encoding="utf-8") as f:
+    with open("sample_list.tmp", "w", encoding="utf-8") as f:
         f.write(f"There are {n} items to prepare.\nHere they are:\n\n")
         for items in sample_list:
             f.writelines(items+ "\n")
@@ -30,7 +29,7 @@ def sample_list_to_txt():
 
 def sample_list_to_printer():
     import os
-    os.system("lpr -P printer_name sample_list.txt")
+    os.system("lpr -P printer_name sample_list.tmp")
 
 def penalities():
     global p
@@ -38,15 +37,19 @@ def penalities():
     print(p, " seconds of penalities !")
 
 def score_to_txt():
-    with open("score.txt", "w", encoding="utf-8") as g:
+    with open("score.tmp", "w", encoding="utf-8") as g:
         g.write(f"Your time is {total} seconds\n\n")
-        g.write(f"You had {p/10} penalities,\ntotaling {p} seconds\n\n")
+        g.write(f"You had {int(p/10)} penalities,\ntotaling {p} seconds\n\n")
         g.write(f"So your final time is {totalp}")
 
+def score_to_printer():
+    import os
+    os.system("lpr -P printer_name score.tmp")
 
 # exec
 sample_key()
 sample_list_to_txt()
+#sample_list_to_printer()
 while a == 1:
     print("Scan the start barcode")
     if input() == "START":
