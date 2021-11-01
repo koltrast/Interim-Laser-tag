@@ -17,8 +17,12 @@ p = 0
 def sample_key():
     global sample_list
     sample_list = random.choices(orig_list, k=n)
-    print(f"There is {n} items to prepare. Here they are : \n")
+    print(f"There are {n} items to prepare. Here they are : \n")
     print(*sample_list, sep = "\n")
+    with open('readme.txt', 'w', encoding='utf-8') as f:
+        f.write(f"There are {n} items to prepare. \nHere they are : \n \n")
+        for items in sample_list:
+            f.writelines(items+ "\n")
 
 def penalities():
     global p
@@ -30,7 +34,10 @@ def send_to_printer():
     os.system("lpr -P printer_name printMe.txt")
 
 
+
+
 # exec
+
 sample_key()
 while a == 1:
     print("Scan the start barcode")
@@ -49,7 +56,7 @@ while a == 1:
             else:
                 penalities()
                 print("You dumb idiot")
-        while a ==1 and b !=0:
+        while a == 1:
             print("Scan the stop bar code")
             if input() == "STOP":
                 t1 = time.time()
