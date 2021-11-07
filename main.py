@@ -22,10 +22,10 @@ def sample_key():
     
 def sample_list_to_txt():
     with open("sample_list.tmp", "w", encoding="utf-8") as f:
-        f.write(f"Il y a {n} objets à préparer. Les voici :\n\n")
+        f.write(f"Il y a {n} objets à préparer.\nLes voici :\n\n")
         for items in sample_list:
             f.writelines(items+ "\n")
-        f.write("\nScannez le code barre \"START\" \n\n Quand vous aurez fini, n’oubliez pas de scanner le code barre \"STOP\"")
+        f.write("\nScannez le code barre\n\"START\"\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n")
 
 def sample_list_to_printer():
     import os
@@ -37,16 +37,26 @@ def penalities():
     print(p, " seconds of penalities !")
 
 def score_to_txt():
-    with open("score.tmp", "w", encoding="utf-8") as g:
-        g.write(f"Vous avez préparé votre commande en {total} secondes\n\n")
-        if p > 0 :
-            g.write(f"cependant vous avez fait {int(p/10)} erreurs, totalisant {p} secondes\n\n")
-            g.write(f"Votre temps retenu est de {totalp} secondes")
+    with open("score.tmp", "w", encoding="utf-8") as f:
+        f.write(f"Vous avez préparé votre\ncommande en {total:.5g} secondes")
+        if p == 0:
+            f.write(f"\n\n")
+        elif p > 0:
+            f.write(f"cependant vous avez fait {int(p/10)} erreurs, totalisant {p} secondes\n\n")
+            f.write(f"Votre temps retenu est de {totalp:.5g} secondes\n\n")
         else:
             print("no penalities")
 
+def score_to_txt_host():
+    with open("score.tmp", "a", encoding="utf-8") as f:
+        f.write("Votre nom : _______________\n\nTicket employeur à conserver\n\n")
 
-def score_to_printer():
+
+def score_to_printer_client():
+    import os
+    os.system("lpr -P EPSON_TM-T20III score.tmp")
+
+def score_to_printer_host():
     import os
     os.system("lpr -P EPSON_TM-T20III score.tmp")
 
@@ -81,7 +91,9 @@ while a == 1:
                 print("Your penalties are ", p)
                 print("Your final time is", totalp)
                 score_to_txt()
-                score_to_printer()
+                score_to_printer_client()
+                score_to_txt_host()
+                score_to_printer_host()
                 a = a - 1
             else:
                 a = 1
