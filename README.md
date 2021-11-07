@@ -1,7 +1,5 @@
-# Kermesse pour le temps présent
-
-## Amazon Scan
-This is a game, where the player scans barcode from a list as quickly as possible.
+# Interim Laser-tag
+This is a game, where the player scans barcode from a list as quickly as possible. It’s part from the *Kermesse pour le temps présent* exhibition.
 
 The user interface is composed with a thermic ticket printer, and a barcode scanner.
 
