@@ -19,13 +19,23 @@ def sample_key():
     sample_list = random.choices(orig_list, k=n)
     print(f"There are {n} items to prepare. Here they are : \n")
     print(*sample_list, sep = "\n")
+
+logo = ('''
+ __   __  _______ 
+|  | |  ||       |
+|  | |  ||    _  |
+|  |_|  ||   |_| |
+|       ||    ___|
+|       ||   |    
+|_______||___|    2021
+   ''')
     
 def sample_list_to_txt():
     with open("sample_list.tmp", "w", encoding="utf-8") as f:
-        f.write(f"Il y a {n} objets à préparer.\nLes voici :\n\n")
+        f.write(f"{logo}\n\nIl y a {n} objets à préparer.\nLes voici :\n\n")
         for items in sample_list:
             f.writelines(items+ "\n")
-        f.write("\nScannez le code barre\n\"START\"\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n")
+        f.write("\nScannez le code barre\n\"START\"\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n----------------------------")
 
 def sample_list_to_printer():
     import os
@@ -40,16 +50,16 @@ def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
         f.write(f"Vous avez préparé votre\ncommande en {total:.5g} secondes")
         if p == 0:
-            f.write(f"\n\n")
+            f.write(f"\n\n\n----------------------------")
         elif p > 0:
             f.write(f"cependant vous avez fait {int(p/10)} erreurs, totalisant {p} secondes\n\n")
-            f.write(f"Votre temps retenu est de {totalp:.5g} secondes\n\n")
+            f.write(f"Votre temps retenu est de {totalp:.5g} secondes\n\n\n----------------------------")
         else:
             print("no penalities")
 
 def score_to_txt_host():
     with open("score.tmp", "a", encoding="utf-8") as f:
-        f.write("Votre nom : _______________\n\nTicket employeur à conserver\n\n")
+        f.write("Votre nom : _______________\n\nTicket employeur à conserver\n\n\n----------------------------")
 
 
 def score_to_printer_client():
