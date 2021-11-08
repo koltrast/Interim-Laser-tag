@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
+# list
 orig_list = ["A01", "A02", "A03", "A04", "B01", "B02", "B03", "B04", "C01", "C02", "C03", "C04", "D01", "D02", "D03", "D04", "E01", "E02", "E03", "E04", "F01", "F02", "F03", "F04", "G01", "G02", "G03", "G04", "I01", "I02", "I03", "I04", "J01", "J02", "J03", "J04", "K01", "K02", "K03", "K04", "L01", "L02", "L03", "L04", "M01", "M02", "M03", "M04", "N01", "N02", "N03", "N04", "O01", "O02", "O03", "O04", "P01", "P02", "P03", "P04", "Q01", "Q02", "Q03", "Q04", "R01", "R02", "R03", "R04", "S01", "S02", "S03", "S04", "T01", "T02", "T03", "T04", "U01", "U02", "U03", "U04", "V01", "V02", "V03", "V04", "W01", "W02", "W03", "W04", "X01", "X02"]
-
 
 # importing the modules
 import random
@@ -9,6 +9,15 @@ import time
 import decimal
 
 # global variables
+logo = ('''
+ __   __  _______ 
+|  | |  ||       |
+|  | |  ||    _  |
+|  |_|  ||   |_| |
+|       ||    ___|
+|       ||   |    
+|_______||___| 2021
+   ''')
 n = random.randint(2,3)
 a = 1
 p = 0
@@ -17,19 +26,9 @@ p = 0
 def sample_key():
     global sample_list
     sample_list = random.choices(orig_list, k=n)
-    print(f"There are {n} items to prepare. Here they are : \n")
+    print(f"There are {n} items to prepare. Here they are :\n")
     print(*sample_list, sep = "\n")
 
-logo = ('''
- __   __  _______ 
-|  | |  ||       |
-|  | |  ||    _  |
-|  |_|  ||   |_| |
-|       ||    ___|
-|       ||   |    
-|_______||___|    2021
-   ''')
-    
 def sample_list_to_txt():
     with open("sample_list.tmp", "w", encoding="utf-8") as f:
         f.write(f"{logo}\n\nIl y a {n} objets à préparer.\nLes voici :\n\n")
@@ -61,12 +60,7 @@ def score_to_txt_host():
     with open("score.tmp", "a", encoding="utf-8") as f:
         f.write("Votre nom : _______________\n\nTicket employeur à conserver\n\n\n----------------------------")
 
-
-def score_to_printer_client():
-    import os
-    os.system("lpr -P EPSON_TM-T20III score.tmp")
-
-def score_to_printer_host():
+def score_to_printer():
     import os
     os.system("lpr -P EPSON_TM-T20III score.tmp")
 
@@ -101,9 +95,9 @@ while a == 1:
                 print("Your penalties are ", p)
                 print("Your final time is", totalp)
                 score_to_txt()
-                score_to_printer_client()
+                score_to_printer()
                 score_to_txt_host()
-                score_to_printer_host()
+                score_to_printer()
                 a = a - 1
             else:
                 a = 1
