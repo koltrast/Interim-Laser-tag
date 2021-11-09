@@ -27,3 +27,11 @@ $ sudo build.sh
 $ sudo install.sh
 ```
 
+To run it automaticaly
+```
+$ crontab -e
+```
+and add the folowing line
+```
+@reboot /usr/bin/python3 ~/Interim-Laser-tag/main.py
+```
