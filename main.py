@@ -6,7 +6,7 @@ orig_list = ["A01", "A02", "A03", "A04", "B01", "B02", "B03", "B04", "C01", "C02
 # importing the modules
 import random
 import time
-import decimal
+from time import sleep
 
 # global variables
 logo = ('''
@@ -20,6 +20,7 @@ logo = ('''
    ''')
 n = random.randint(2,3)
 a = 1
+b = 1
 p = 0
 
 # functions
@@ -65,41 +66,46 @@ def score_to_printer():
     os.system("lpr -P EPSON_TM-T20III score.tmp")
 
 # exec
-sample_key()
-sample_list_to_txt()
-sample_list_to_printer()
 while a == 1:
-    print("Scan the start barcode")
-    if input() == "START":
-        t0 = time.time()
-        i = 0
-        while i < n :
-            print(str(n - i) + " to scan")
-            scan = input()
-            if scan in sample_list:
-                print(scan, "is in the list")
-                sample_list.remove(scan)
-                i = i + 1
-            elif scan == "STOP":
-                print("This can’t stop")
-            else:
-                penalities()
-                print("You dumb idiot")
-        while a == 1:
-            print("Scan the stop bar code")
-            if input() == "STOP":
-                t1 = time.time()
-                total = t1-t0
-                totalp = total + p
-                print("Your time is ", total)
-                print("Your penalties are ", p)
-                print("Your final time is", totalp)
-                score_to_txt()
-                score_to_printer()
-                score_to_txt_host()
-                score_to_printer()
-                a = a - 1
-            else:
-                a = 1
-    else:
-        a = 1
+    a = 0
+    b = 1
+    sample_key()
+    sample_list_to_txt()
+    sample_list_to_printer()
+    while b == 1:
+        print("Scan the start barcode")
+        if input() == "START":
+            t0 = time.time()
+            i = 0
+            while i < n :
+                print(str(n - i) + " to scan")
+                scan = input()
+                if scan in sample_list:
+                    print(scan, "is in the list")
+                    sample_list.remove(scan)
+                    i = i + 1
+                elif scan == "STOP":
+                    print("This can’t stop")
+                else:
+                    penalities()
+                    print("You dumb idiot")
+            while b == 1:
+                print("Scan the stop bar code")
+                if input() == "STOP":
+                    t1 = time.time()
+                    total = t1-t0
+                    totalp = total + p
+                    print("Your time is ", total)
+                    print("Your penalties are ", p)
+                    print("Your final time is", totalp)
+                    score_to_txt()
+                    score_to_printer()
+                    score_to_txt_host()
+                    score_to_printer()
+                    b = b - 1
+                    a = 1
+                    sleep(15)
+                else:
+                    b = 1
+        else:
+            b = 1
