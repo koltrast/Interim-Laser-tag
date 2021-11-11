@@ -48,18 +48,16 @@ def penalities():
 
 def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
+        f.write(f"{logo}\n\n")
         f.write(f"Vous avez préparé votre\ncommande en {total:.5g} secondes")
         if p == 0:
             f.write(f"\n\n\n----------------------------")
         elif p > 0:
-            f.write(f"cependant vous avez fait {int(p/10)} erreurs, totalisant {p} secondes\n\n")
+            f.write(f"cependant vous avez fait\n{int(p/10)} erreurs, totalisant\n{p} secondes\n\n")
             f.write(f"Votre temps retenu est de {totalp:.5g} secondes\n\n\n----------------------------")
         else:
             print("no penalities")
-
-def score_to_txt_host():
-    with open("score.tmp", "a", encoding="utf-8") as f:
-        f.write("Votre nom : _______________\n\nTicket employeur à conserver\n\n\n----------------------------")
+        f.write("Votre nom : _______________\n\nImprimé en 2 exemplaires\n\n\n----------------------------")
 
 def score_to_printer():
     import os
@@ -85,6 +83,7 @@ while a == 1:
                     sample_list.remove(scan)
                     i = i + 1
                 elif scan == "STOP":
+                    print("You’re fired")
                     b = 0
                     a = 1
                     sleep(15)
@@ -102,7 +101,6 @@ while a == 1:
                     print("Your final time is", totalp)
                     score_to_txt()
                     score_to_printer()
-                    score_to_txt_host()
                     score_to_printer()
                     b = b - 1
                     a = 1
