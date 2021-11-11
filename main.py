@@ -77,7 +77,7 @@ while a == 1:
         if input() == "START":
             t0 = time.time()
             i = 0
-            while i < n :
+            while i < n and a == 0:
                 print(str(n - i) + " to scan")
                 scan = input()
                 if scan in sample_list:
@@ -85,7 +85,9 @@ while a == 1:
                     sample_list.remove(scan)
                     i = i + 1
                 elif scan == "STOP":
-                    print("This can’t stop")
+                    b = 0
+                    a = 1
+                    sleep(15)
                 else:
                     penalities()
                     print("You dumb idiot")
