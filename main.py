@@ -17,6 +17,7 @@ logo = ('''
 |       ||    ___|
 |       ||   |    
 |_______||___| 2021
+INTERIM-LASER-TAG
    ''')
 n = random.randint(2,3)
 a = 1
