@@ -37,7 +37,7 @@ def sample_list_to_txt():
         f.write(f"{logo}\n\nIl y a {n} objets à préparer.\nLes voici :\n\n")
         for items in sample_list:
             f.writelines(items+ "\n")
-        f.write("\nScannez le code barre\n\"START\"\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n----------------------------")
+        f.write("\nPour commencer scannez le\ncode barre\"START\"\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n----------------------------")
 
 def sample_list_to_printer():
     import os
