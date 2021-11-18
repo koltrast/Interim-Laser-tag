@@ -57,10 +57,10 @@ def score_to_txt():
             f.write(f"\n\n\n----------------------------")
         elif p > 0:
             f.write(f"cependant vous avez fait\n{int(p/10)} erreurs, totalisant\n{p} secondes\n\n")
-            f.write(f"Votre temps retenu est de {totalp:.5g} secondes\n\n\n----------------------------")
+            f.write(f"Votre temps retenu est de\n{totalp:.5g} secondes\n\n\n----------------------------")
         else:
             print("no penalities")
-        f.write("Votre nom : _______________\n\nImprimé en 2 exemplaires\n\n\n----------------------------")
+        f.write("Votre nom : _______________\n\nImprimé en 2 exemplaires\n\n\----------------------------")
 
 def score_to_printer():
     import os
