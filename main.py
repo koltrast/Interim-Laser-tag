@@ -44,7 +44,7 @@ def sample_list_to_printer():
     os.system("lpr -P EPSON_TM-T20III sample_list.tmp")
 
 def penalities():
-    playsound('sound/wrong.wav')
+    #playsound('sound/wrong.wav')
     global p
     p = p + 10
     print(p, " seconds of penalities !")
@@ -76,7 +76,7 @@ while a == 1:
     while b == 1:
         print("Scan the start barcode")
         if input() == "START":
-            playsound('sound/start.wav')
+            #playsound('sound/start.wav')
             t0 = time.time()
             i = 0
             while i < n and a == 0:
@@ -94,7 +94,7 @@ while a == 1:
                 else:
                     penalities()
                     print("You dumb idiot")
-            playsound('sound/complete.wav')
+            #playsound('sound/complete.wav')
             while b == 1:
                 print("Scan the stop bar code")
                 if input() == "STOP":
