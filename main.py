@@ -37,7 +37,7 @@ def sample_list_to_txt():
         f.write(f"{logo}\n\nIl y a {n} objets à préparer.\nLes voici :\n\n")
         for items in sample_list:
             f.writelines(items+ "\n")
-        f.write("\nPour commencer scannez le\ncode barre\"START\"\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n----------------------------")
+        f.write("\nPour commencer scannez le\ncode barre \"START\"\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n----------------------------")
 
 def sample_list_to_printer():
     import os
@@ -48,6 +48,12 @@ def penalities():
     global p
     p = p + 10
     print(p, " seconds of penalities !")
+
+def ragequitter():
+    import os
+    with open("ragequit.tmp", "w", encoding="utf-8") as f:
+        f.write("Vous êtes VIRÉ !\nVous n’avez pas terminé\nvotre commande.")
+        os.system("lpr -3 EPSON_TM-T20III ragequit.tmp")
 
 def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
@@ -88,6 +94,7 @@ while a == 1:
                     i = i + 1
                 elif scan == "STOP":
                     print("You’re fired")
+                    ragequitter()
                     b = 0
                     a = 1
                     sleep(15)
