@@ -18,6 +18,9 @@ You need to build and install tmx-cups-src-ThermalReceipt-3.0.0.0, in the ressou
 ```
 $ sudo apt install cups-bsd cmake libcupsimage2-dev
 ```
+```
+$ pip install PyObjC playsound
+```
 
 ```
 $ cd ressources
