@@ -20,7 +20,7 @@ logo = ('''
 |_______||___| 2021
 INTERIM-LASER-TAG
    ''')
-n = random.randint(2,3)
+n = random.randint(5,8)
 a = 1
 b = 1
 p = 0
@@ -52,7 +52,7 @@ def penalities():
 def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
         f.write(f"{logo}\n\n")
-        f.write(f"Vous avez préparé votre\ncommande en {total:.5g} secondes")
+        f.write(f"Vous avez préparé votre\ncommande de {n} objets en\n{total:.5g} secondes")
         if p == 0:
             f.write(f"\n\n\n----------------------------")
         elif p > 0:
@@ -60,7 +60,7 @@ def score_to_txt():
             f.write(f"Votre temps retenu est de\n{totalp:.5g} secondes\n\n\n----------------------------")
         else:
             print("no penalities")
-        f.write("Votre nom : _______________\n\nImprimé en 2 exemplaires\n\n\----------------------------")
+        f.write("Votre nom : _______________\n\nImprimé en 2 exemplaires\n\n----------------------------")
 
 def score_to_printer():
     import os
