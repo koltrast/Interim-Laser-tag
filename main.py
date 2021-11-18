@@ -52,7 +52,7 @@ def penalities():
 def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
         f.write(f"{logo}\n\n")
-        f.write(f"Vous avez préparé votre\ncommande de {n} objets en\n{total:.5g} secondes")
+        f.write(f"Vous avez préparé votre\ncommande de {n} objets en\n{total:.5g} secondes\n")
         if p == 0:
             f.write(f"\n\n\n----------------------------")
         elif p > 0:
