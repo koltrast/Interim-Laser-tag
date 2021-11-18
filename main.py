@@ -53,7 +53,7 @@ def ragequitter():
     import os
     with open("ragequit.tmp", "w", encoding="utf-8") as f:
         f.write("Vous êtes VIRÉ !\nVous n’avez pas terminé\nvotre commande.")
-        os.system("lpr -3 EPSON_TM-T20III ragequit.tmp")
+    os.system("lpr -3 EPSON_TM-T20III ragequit.tmp")
 
 def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
