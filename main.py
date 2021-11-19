@@ -34,11 +34,10 @@ def sample_key():
 
 def sample_list_to_txt():
     with open("sample_list.tmp", "w", encoding="utf-8") as f:
-        f.write("Pour commencer scannez le\ncode barre \"START\"\n\n")
-        f.write(f"{logo}\n\nIl y a {n} objets à préparer.\nLes voici :\n\n")
+        f.write(f"{logo}\n\nPour commencer scannez le\ncode barre \"START\"\n\nIl y a {n} objets à préparer.\nLes voici :\n\n")
         for items in sample_list:
             f.writelines(items+ "\n")
-        f.write("Quand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n----------------------------")
+        f.write("\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n----------------------------")
 
 def sample_list_to_printer():
     import os
