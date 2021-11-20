@@ -76,6 +76,7 @@ def score_to_printer():
 while a == 1:
     a = 0
     b = 1
+    p = 0
     sample_key()
     sample_list_to_txt()
     sample_list_to_printer()
@@ -117,6 +118,7 @@ while a == 1:
                     b = b - 1
                     a = 1
                     sleep(15)
+                    n = random.randint(5,8)
                 else:
                     b = 1
         else:
