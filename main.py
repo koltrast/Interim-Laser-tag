@@ -102,7 +102,10 @@ while a == 1:
                 else:
                     penalities()
                     print("You dumb idiot")
-            playsound('sound/complete.wav')
+            if i == n and a == 0:
+                playsound('sound/complete.wav')
+            else:
+                print("No sound for quitters")
             while b == 1:
                 print("Scan the stop bar code")
                 if input() == "STOP":
