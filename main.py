@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 # importing the modules
+import os
 import random
 import time
 from time import sleep
