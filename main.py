@@ -79,7 +79,7 @@ def score_to_printer():
 
 # exec
 
-orig_list = generate_list("UP-K21-", 'A', 'C', 0, 2)
+orig_list = generate_list("UP-K21-", 'A', 'R', 1, 6)
 while a == 1:
     a = 0
     b = 1
