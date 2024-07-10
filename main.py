@@ -46,7 +46,7 @@ def sample_list_to_txt():
 
 def sample_list_to_printer():
     import os
-    os.system("lpr -P EPSON_TM-T20III sample_list.tmp")
+    os.system("lpr -P EPSON_TM-T20III sample_list.tmp -o cpi=16 -o lpi=7")
 
 def penalities():
     playsound('sound/wrong.wav')
@@ -58,7 +58,7 @@ def ragequitter():
     import os
     with open("ragequit.tmp", "w", encoding="utf-8") as f:
         f.write("Vous êtes VIRÉ !\nVous n’avez pas terminé\nvotre commande.\n\n\n----------------------------")
-    os.system("lpr -3 EPSON_TM-T20III ragequit.tmp")
+    os.system("lpr -3 EPSON_TM-T20III ragequit.tmp -o cpi=16 -o lpi=7")
 
 def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
@@ -75,9 +75,11 @@ def score_to_txt():
 
 def score_to_printer():
     import os
-    os.system("lpr -P EPSON_TM-T20III score.tmp")
+    os.system("lpr -P EPSON_TM-T20III score.tmp -o cpi=16 -o lpi=7")
 
 # exec
+
+orig_list = generate_list("UP-K21-", 'A', 'C', 0, 2)
 while a == 1:
     a = 0
     b = 1
