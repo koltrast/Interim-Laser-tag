@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# importing the modules
+# modules
 import os
 import random
 import time
@@ -46,7 +46,6 @@ def sample_list_to_txt():
         f.write("\n\nQuand vous aurez fini,\nscannez le code barre STOP\n\n\n--------------------------------------------")
 
 def sample_list_to_printer():
-    import os
     os.system("lpr -P EPSON_TM-T20III sample_list.tmp -o cpi=16 -o lpi=7")
     os.remove("sample_list.tmp")
 
@@ -74,10 +73,10 @@ def score_to_txt():
             f.write(f"Votre temps retenu est de\n{totalp:.5g} secondes\n\n\n--------------------------------------------")
         else:
             print("no penalities")
-        f.write("Votre nom : ____________________________\n\nImprimé en 2 exemplaires\n\n--------------------------------------------")
+        f.write("\nVotre nom : ____________________________\n\nImprimé en 2 exemplaires\n\n--------------------------------------------")
 
 def score_to_printer():
-    import os
+    os.system("lpr -P EPSON_TM-T20III score.tmp -o cpi=16 -o lpi=7")
     os.system("lpr -P EPSON_TM-T20III score.tmp -o cpi=16 -o lpi=7")
     os.remove("score.tmp")
 
@@ -127,7 +126,6 @@ while a == 1:
                     print("Your penalties are ", p)
                     print("Your final time is", totalp)
                     score_to_txt()
-                    score_to_printer()
                     score_to_printer()
                     b = b - 1
                     a = 1
