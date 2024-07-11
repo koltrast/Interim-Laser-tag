@@ -40,10 +40,10 @@ def sample_key():
 
 def sample_list_to_txt():
     with open("sample_list.tmp", "w", encoding="utf-8") as f:
-        f.write(f"{logo}\n\nPour commencer scannez le\ncode barre \"START\"\n\nIl y a {n} objets à préparer.\nLes voici :\n\n")
+        f.write(f"{logo}\n\nPour commencer, scannez le code barre START\n\nIl y a {n} objets à préparer.\nLes voici :\n\n")
         for items in sample_list:
             f.writelines(items+ "\n")
-        f.write("\n\nQuand vous aurez fini,\nn’oubliez pas de scanner\nle code barre \"STOP\"\n\n\n----------------------------")
+        f.write("\n\nQuand vous aurez fini,\nscannez le code barre STOP\n\n\n--------------------------------------------")
 
 def sample_list_to_printer():
     import os
@@ -59,22 +59,22 @@ def penalities():
 def ragequitter():
     import os
     with open("ragequit.tmp", "w", encoding="utf-8") as f:
-        f.write("Vous êtes VIRÉ !\nVous n’avez pas terminé\nvotre commande.\n\n\n----------------------------")
+        f.write("Vous êtes VIRÉ !\nVous n’avez pas terminé votre commande.\n\n\n--------------------------------------------")
     os.system("lpr -3 EPSON_TM-T20III ragequit.tmp -o cpi=16 -o lpi=7")
     os.remove("ragequit.tmp")
 
 def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
         f.write(f"{logo}\n\n")
-        f.write(f"Vous avez préparé votre\ncommande de {n} objets en\n{total:.5g} secondes\n")
+        f.write(f"Vous avez préparé une commande de {n} objets en\n{total:.5g} secondes\n\n")
         if p == 0:
-            f.write(f"\n\n\n----------------------------")
+            f.write(f"\n\n\n--------------------------------------------")
         elif p > 0:
             f.write(f"cependant vous avez fait\n{int(p/10)} erreurs, totalisant\n{p} secondes\n\n")
-            f.write(f"Votre temps retenu est de\n{totalp:.5g} secondes\n\n\n----------------------------")
+            f.write(f"Votre temps retenu est de\n{totalp:.5g} secondes\n\n\n--------------------------------------------")
         else:
             print("no penalities")
-        f.write("Votre nom : _______________\n\nImprimé en 2 exemplaires\n\n----------------------------")
+        f.write("Votre nom : ____________________________\n\nImprimé en 2 exemplaires\n\n--------------------------------------------")
 
 def score_to_printer():
     import os
