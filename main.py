@@ -65,9 +65,9 @@ def ragequitter():
 def score_to_txt():
     with open("score.tmp", "w", encoding="utf-8") as f:
         f.write(f"{logo}\n\n")
-        f.write(f"Vous avez préparé une commande de {n} objets en\n{total:.5g} secondes\n\n")
+        f.write(f"Vous avez préparé une commande de {n} objets \n en {total:.5g} secondes\n\n")
         if p == 0:
-            f.write(f"\n\n\n--------------------------------------------")
+            f.write(f"\n\n--------------------------------------------")
         elif p > 0:
             f.write(f"cependant vous avez fait\n{int(p/10)} erreurs, totalisant\n{p} secondes\n\n")
             f.write(f"Votre temps retenu est de\n{totalp:.5g} secondes\n\n\n--------------------------------------------")
