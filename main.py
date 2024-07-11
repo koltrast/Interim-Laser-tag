@@ -5,7 +5,7 @@ import os
 import random
 import time
 from time import sleep
-from playsound import playsound
+import pygame
 
 # global variables
 logo = ('''
@@ -50,7 +50,8 @@ def sample_list_to_printer():
     os.remove("sample_list.tmp")
 
 def penalities():
-    playsound('sound/wrong.wav')
+    pygame.mixer.music.load('sound/wrong.wav')
+    pygame.mixer.music.play()
     global p
     p = p + 10
     print(p, " seconds of penalities !")
@@ -83,6 +84,7 @@ def score_to_printer():
 # exec
 
 orig_list = generate_list("UP-K21-", 'A', 'R', 1, 6)
+pygame.mixer.init()
 while a == 1:
     a = 0
     b = 1
@@ -93,7 +95,10 @@ while a == 1:
     while b == 1:
         print("Scan the start barcode")
         if input() == "START":
-            playsound('sound/start.wav')
+            pygame.mixer.music.load('sound/start.wav')
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                pygame.time.Clock().tick(10)
             t0 = time.time()
             i = 0
             while i < n and a == 0:
@@ -113,7 +118,8 @@ while a == 1:
                     penalities()
                     print("You dumb idiot")
             if i == n and a == 0:
-                playsound('sound/complete.wav')
+                pygame.mixer.music.load('sound/complete.wav')
+                pygame.mixer.music.play()
             else:
                 print("No sound for quitters")
             while b == 1:
